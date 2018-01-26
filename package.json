@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "apidoc -i src/ -o doc/ && apidoc-markdown -p doc/ -o apidoc.md"
+    "doc": "apidoc -i src/ -o doc/ && apidoc-markdown -p doc/ -o apidoc.md",
+    "adddoc": "git add apidoc.md"
   },
-  "pre-push": [
+  "pre-commit": [
     "doc",
+    "adddoc"
   ],
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "apidoc-markdown": "^0.2.0"
   },
   "devDependencies": {
+    "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1"
   }
 }
